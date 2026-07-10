@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>رسانه هنری رهاف | Rehaf Media</title>
+<meta name="description" content="رهاف؛ رسانه هنری برای طراحی، تایپوگرافی و محتوای گرافیکی. مسیر ارتباط، سفارش و دسترسی به کانال‌های رهاف.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
+<style>
+  /* ===================================================
+     رسانه هنری رهاف — طراحی: پالت لوکس/معنوی، تایپوگرافی وزیرمتن
+     نکته: برای ویرایش لینک تلگرام به بخش «TELEGRAM LINK» در HTML مراجعه کنید
+     =================================================== */
+
+  :root{
+    --bg:            #0e1310;
+    --bg-soft:       #141b17;
+    --panel:         #171f1a;
+    --panel-border:  rgba(201,161,94,0.16);
+    --ink:           #ece6d8;
+    --ink-dim:       #a7ada1;
+    --ink-faint:     #6f766b;
+    --gold:          #c9a15e;
+    --gold-soft:     #d9bd8a;
+    --gold-dim:      rgba(201,161,94,0.35);
+    --green-deep:    #1c2a20;
+
+    --font-display:  'Vazirmatn', sans-serif;
+    --font-body:     'Vazirmatn', sans-serif;
+
+    --container: 720px;
+    --radius: 14px;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    background:
+      radial-gradient(1200px 600px at 50% -10%, var(--green-deep) 0%, transparent 60%),
+      var(--bg);
+    color:var(--ink);
+    font-family:var(--font-body);
+    line-height:1.8;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  ::selection{ background:var(--gold-dim); color:var(--ink); }
+
+  a{ color:inherit; text-decoration:none; }
+
+  img,svg{ display:block; max-width:100%; }
+
+  .container{
+    width:100%;
+    max-width:var(--container);
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  /* ---------- decorative star motif (signature element) ---------- */
+  .star-mark{
+    display:block;
+    margin:0 auto;
+    width:34px;
+    height:34px;
+    opacity:0.85;
+  }
+  .star-mark path{
+    fill:none;
+    stroke:var(--gold);
+    stroke-width:1;
+  }
+  .star-spin{
+    animation: spin-slow 46s linear infinite;
+    transform-origin:50% 50%;
+  }
+  @media (prefers-reduced-motion: reduce){
+    .star-spin{ animation:none; }
+  }
+  @keyframes spin-slow{
+    from{ transform:rotate(0deg); }
+    to{ transform:rotate(360deg); }
+  }
+
+  .divider{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:18px;
+    margin: 0 auto;
+  }
+  .divider .line{
+    height:1px;
+    width:56px;
+    background:linear-gradient(90deg, transparent, var(--gold-dim));
+  }
+  .divider .line.rev{
+    background:linear-gradient(270deg, transparent, var(--gold-dim));
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    min-height:92vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:120px 24px 80px;
+  }
+
+  .hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+      radial-gradient(1px 1px at 12% 22%, rgba(201,161,94,0.35) 0, transparent 60%),
+      radial-gradient(1px 1px at 82% 18%, rgba(201,161,94,0.28) 0, transparent 60%),
+      radial-gradient(1px 1px at 70% 78%, rgba(201,161,94,0.22) 0, transparent 60%),
+      radial-gradient(1px 1px at 24% 84%, rgba(201,161,94,0.28) 0, transparent 60%);
+    pointer-events:none;
+  }
+
+  .hero-inner{
+    position:relative;
+    max-width:600px;
+  }
+
+  .eyebrow{
+    display:inline-block;
+    font-size:13px;
+    letter-spacing:0.14em;
+    color:var(--gold-soft);
+    border:1px solid var(--panel-border);
+    padding:7px 20px;
+    border-radius:999px;
+    margin-bottom:28px;
+    background:rgba(201,161,94,0.05);
+  }
+
+  .brand-title{
+    font-family:var(--font-display);
+    font-weight:800;
+    font-size:clamp(34px, 6.4vw, 54px);
+    line-height:1.25;
+    color:var(--ink);
+    letter-spacing:-0.01em;
+  }
+
+  .brand-en{
+    margin-top:10px;
+    font-size:13px;
+    letter-spacing:0.16em;
+    color:var(--ink-faint);
+    text-transform:uppercase;
+    font-family: Georgia, 'Times New Roman', serif;
+    direction:ltr;
+  }
+
+  .tagline{
+    margin-top:28px;
+    font-size:clamp(17px, 2.6vw, 20px);
+    color:var(--gold-soft);
+    font-weight:600;
+  }
+
+  .hero-desc{
+    margin-top:16px;
+    font-size:15.5px;
+    color:var(--ink-dim);
+    max-width:460px;
+    margin-inline:auto;
+  }
+
+  .hero-actions{
+    margin-top:40px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:14px;
+  }
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:13px 26px;
+    border-radius:10px;
+    font-size:14.5px;
+    font-weight:600;
+    border:1px solid transparent;
+    cursor:pointer;
+    transition: transform .18s ease, border-color .18s ease, background-color .18s ease, opacity .18s ease;
+    font-family:inherit;
+  }
+  .btn:active{ transform:scale(0.97); }
+
+  .btn-gold{
+    background:linear-gradient(180deg, var(--gold-soft), var(--gold));
+    color:#171208;
+  }
+  .btn-gold:hover{ opacity:0.92; }
+
+  .btn-outline{
+    background:transparent;
+    border-color:var(--panel-border);
+    color:var(--ink);
+  }
+  .btn-outline:hover{ border-color:var(--gold-dim); background:rgba(201,161,94,0.06); }
+
+  .btn-ghost{
+    background:transparent;
+    color:var(--gold-soft);
+    border-color:transparent;
+    text-decoration:underline;
+    text-underline-offset:4px;
+  }
+
+  .icon{ width:17px; height:17px; flex-shrink:0; }
+  .icon path, .icon circle, .icon rect{ stroke:currentColor; }
+
+  /* ---------- section shell ---------- */
+  section{ padding:80px 0; position:relative; }
+
+  .section-head{
+    text-align:center;
+    margin-bottom:48px;
+  }
+  .section-head .eyebrow-sm{
+    font-size:12px;
+    letter-spacing:0.14em;
+    color:var(--ink-faint);
+    margin-bottom:10px;
+    display:block;
+  }
+  .section-head h2{
+    font-family:var(--font-display);
+    font-weight:800;
+    font-size:clamp(22px, 4vw, 28px);
+    color:var(--ink);
+  }
+
+  /* ---------- platform cards ---------- */
+  .platforms{ display:grid; gap:16px; }
+
+  .p-card{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    padding:22px;
+    border-radius:var(--radius);
+    background:var(--panel);
+    border:1px solid var(--panel-border);
+    transition: border-color .2s ease, transform .2s ease;
+  }
+  .p-card:hover{ border-color:var(--gold-dim); transform:translateY(-2px); }
+
+  .p-card .p-icon{
+    width:46px; height:46px;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    background:rgba(201,161,94,0.08);
+    border:1px solid var(--panel-border);
+    flex-shrink:0;
+  }
+  .p-card .p-icon svg{ width:20px; height:20px; color:var(--gold-soft); }
+
+  .p-body{ flex:1; min-width:0; }
+  .p-title{ font-size:15.5px; font-weight:700; color:var(--ink); }
+  .p-sub{ font-size:13px; color:var(--ink-faint); margin-top:3px; }
+  .p-tag{
+    font-size:11px;
+    color:var(--gold-soft);
+    border:1px solid var(--gold-dim);
+    padding:2px 10px;
+    border-radius:999px;
+    margin-inline-start:8px;
+  }
+
+  .p-action{
+    font-size:13px;
+    font-weight:700;
+    color:var(--gold);
+    white-space:nowrap;
+    padding:9px 16px;
+    border:1px solid var(--panel-border);
+    border-radius:8px;
+    flex-shrink:0;
+  }
+  .p-card:hover .p-action{ border-color:var(--gold-dim); }
+
+  /* ---------- bio ---------- */
+  .bio-panel{
+    background:var(--panel);
+    border:1px solid var(--panel-border);
+    border-radius:var(--radius);
+    padding:40px 32px;
+    text-align:center;
+    position:relative;
+  }
+  .bio-panel p{
+    font-size:16.5px;
+    color:var(--ink-dim);
+    max-width:520px;
+    margin:0 auto;
+  }
+  .bio-panel .quote-mark{
+    color:var(--gold-dim);
+    font-size:34px;
+    font-family:Georgia, serif;
+    display:block;
+    margin-bottom:6px;
+  }
+
+  /* ---------- contact ---------- */
+  .contact-list{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+
+  .c-row{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    background:var(--panel);
+    border:1px solid var(--panel-border);
+    border-radius:var(--radius);
+    padding:16px 20px;
+  }
+
+  .c-icon{
+    width:38px; height:38px;
+    border-radius:10px;
+    background:rgba(201,161,94,0.08);
+    border:1px solid var(--panel-border);
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .c-icon svg{ width:17px; height:17px; color:var(--gold-soft); }
+
+  .c-info{ flex:1; min-width:0; }
+  .c-label{ font-size:11.5px; color:var(--ink-faint); letter-spacing:0.04em; }
+  .c-value{
+    font-size:15px;
+    font-weight:700;
+    color:var(--ink);
+    direction:ltr;
+    text-align:right;
+    unicode-bidi:isolate;
+    margin-top:2px;
+  }
+
+  .c-buttons{ display:flex; gap:8px; flex-shrink:0; }
+
+  .c-btn{
+    width:38px; height:38px;
+    border-radius:9px;
+    border:1px solid var(--panel-border);
+    background:transparent;
+    color:var(--ink-dim);
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer;
+    transition: border-color .18s ease, color .18s ease, background-color .18s ease;
+  }
+  .c-btn svg{ width:15px; height:15px; }
+  .c-btn:hover{ border-color:var(--gold-dim); color:var(--gold-soft); background:rgba(201,161,94,0.06); }
+  .c-btn.copied{ color:var(--gold); border-color:var(--gold-dim); }
+
+  .toast{
+    position:fixed;
+    bottom:26px;
+    left:50%;
+    transform:translateX(-50%) translateY(20px);
+    background:var(--gold);
+    color:#171208;
+    font-size:13.5px;
+    font-weight:700;
+    padding:11px 22px;
+    border-radius:999px;
+    opacity:0;
+    pointer-events:none;
+    transition: opacity .25s ease, transform .25s ease;
+    z-index:50;
+    white-space:nowrap;
+  }
+  .toast.show{
+    opacity:1;
+    transform:translateX(-50%) translateY(0);
+  }
+
+  /* ---------- footer ---------- */
+  footer{
+    padding:56px 24px 40px;
+    text-align:center;
+    border-top:1px solid var(--panel-border);
+  }
+  .footer-brand{
+    font-family:var(--font-display);
+    font-weight:800;
+    font-size:16px;
+    color:var(--ink);
+  }
+  .footer-en{
+    margin-top:6px;
+    font-size:11.5px;
+    letter-spacing:0.14em;
+    color:var(--ink-faint);
+    text-transform:uppercase;
+    direction:ltr;
+    font-family: Georgia, 'Times New Roman', serif;
+  }
+  .footer-id{
+    margin-top:18px;
+    font-size:12px;
+    color:var(--ink-faint);
+    direction:ltr;
+  }
+
+  @media (min-width:640px){
+    .p-card{ padding:24px 28px; }
+  }
+
+  :focus-visible{
+    outline:2px solid var(--gold);
+    outline-offset:3px;
+  }
+</style>
+</head>
+<body>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="eyebrow">رسانه هنری</span>
+
+      <h1 class="brand-title">رسانه هنری رهاف</h1>
+      <div class="brand-en">Rehaf Media &nbsp;·&nbsp; rehafmedia</div>
+
+      <div class="divider" style="margin-top:26px;">
+        <span class="line"></span>
+        <svg class="star-mark star-spin" viewBox="0 0 100 100" aria-hidden="true">
+          <path d="M50 4 L61 39 L98 39 L68 60 L79 96 L50 74 L21 96 L32 60 L2 39 L39 39 Z"/>
+        </svg>
+        <span class="line rev"></span>
+      </div>
+
+      <p class="tagline">رهاف؛ جایی برای دیدنِ متفاوت</p>
+      <p class="hero-desc">
+        رسانه‌ای هنری برای طراحی، تایپوگرافی و محتوای گرافیکی —
+        مسیر ارتباط، سفارش و دسترسی به کانال‌های رهاف.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-gold" href="https://eitaa.com/rehafmedia" target="_blank" rel="noopener">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 1 8 8"/><path d="M4 12a8 8 0 0 0 8 8"/><path d="M9 12l2 2 4-4"/></svg>
+          ورود به ایتا
+        </a>
+
+        <!-- TELEGRAM LINK: در ادامه href را با لینک تلگرام واقعی جایگزین کنید -->
+        <a class="btn btn-outline" href="#" target="_blank" rel="noopener">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7Z"/></svg>
+          ورود به تلگرام
+        </a>
+
+        <a class="btn btn-ghost" href="#contact">ارتباط برای سفارش</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PLATFORMS ============ -->
+  <section id="platforms">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow-sm">کانال‌ها</span>
+        <h2>مسیر ورود به رهاف</h2>
+      </div>
+
+      <div class="platforms">
+        <a class="p-card" href="https://eitaa.com/rehafmedia" target="_blank" rel="noopener">
+          <span class="p-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 1 8 8"/><path d="M4 12a8 8 0 0 0 8 8"/><path d="M9 12l2 2 4-4"/></svg>
+          </span>
+          <span class="p-body">
+            <span class="p-title">ایتا <span class="p-tag">اصلی</span></span>
+            <span class="p-sub">eitaa.com/rehafmedia</span>
+          </span>
+          <span class="p-action">ورود</span>
+        </a>
+
+        <!-- TELEGRAM LINK: در ادامه href را با لینک تلگرام واقعی جایگزین کنید -->
+        <a class="p-card" href="#">
+          <span class="p-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7Z"/></svg>
+          </span>
+          <span class="p-body">
+            <span class="p-title">تلگرام</span>
+            <span class="p-sub">به‌زودی</span>
+          </span>
+          <span class="p-action">ورود</span>
+        </a>
+
+        <a class="p-card" href="#contact">
+          <span class="p-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z" opacity="0"/><path d="M21 15v4a2 2 0 0 1-2 2h-4"/><path d="M3 9V5a2 2 0 0 1 2-2h4"/><path d="M15 3h6v6"/><path d="M9 21H3v-6"/></svg>
+          </span>
+          <span class="p-body">
+            <span class="p-title">ارتباط مستقیم</span>
+            <span class="p-sub">سفارش، همکاری و مشاوره</span>
+          </span>
+          <span class="p-action">مشاهده</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BIO ============ -->
+  <section id="about">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow-sm">درباره رهاف</span>
+        <h2>یک نگاه کوتاه</h2>
+      </div>
+
+      <div class="bio-panel">
+        <span class="quote-mark">”</span>
+        <p>
+          رهاف یک رسانه هنری و گرافیکی است که با تمرکز بر طراحی مذهبی، تایپوگرافی،
+          ابزارهای کاربردی و آموزش‌های گرافیکی فعالیت می‌کند؛ با هدف ارائه محتوایی
+          متفاوت، کاربردی و حرفه‌ای برای مخاطبان و سفارش‌دهندگان.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow-sm">همکاری و سفارش</span>
+        <h2>راه‌های ارتباطی</h2>
+      </div>
+
+      <div class="contact-list">
+
+        <div class="c-row">
+          <span class="c-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </span>
+          <span class="c-info">
+            <span class="c-label">آیدی</span>
+            <span class="c-value" data-copy="@taha_designer90">taha_designer90@</span>
+          </span>
+          <span class="c-buttons">
+            <button class="c-btn" data-copy-target="@taha_designer90" title="کپی آیدی" aria-label="کپی آیدی">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            </button>
+          </span>
+        </div>
+
+        <div class="c-row">
+          <span class="c-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </span>
+          <span class="c-info">
+            <span class="c-label">شماره تماس</span>
+            <span class="c-value" dir="ltr">0936 926 8598</span>
+          </span>
+          <span class="c-buttons">
+            <button class="c-btn" data-copy-target="09369268598" title="کپی شماره" aria-label="کپی شماره">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            </button>
+            <a class="c-btn" href="tel:09369268598" title="تماس" aria-label="تماس">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </a>
+          </span>
+        </div>
+
+        <div class="c-row">
+          <span class="c-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </span>
+          <span class="c-info">
+            <span class="c-label">شماره تماس دوم</span>
+            <span class="c-value" dir="ltr">0938 732 8940</span>
+          </span>
+          <span class="c-buttons">
+            <button class="c-btn" data-copy-target="09387328940" title="کپی شماره" aria-label="کپی شماره">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            </button>
+            <a class="c-btn" href="tel:09387328940" title="تماس" aria-label="تماس">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </a>
+          </span>
+        </div>
+
+        <div class="c-row">
+          <span class="c-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 1 8 8"/><path d="M4 12a8 8 0 0 0 8 8"/><path d="M9 12l2 2 4-4"/></svg>
+          </span>
+          <span class="c-info">
+            <span class="c-label">کانال ایتا</span>
+            <span class="c-value" dir="ltr">eitaa.com/rehafmedia</span>
+          </span>
+          <span class="c-buttons">
+            <a class="c-btn" href="https://eitaa.com/rehafmedia" target="_blank" rel="noopener" title="باز کردن ایتا" aria-label="باز کردن ایتا">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
+            </a>
+          </span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <svg class="star-mark" viewBox="0 0 100 100" aria-hidden="true" style="margin-bottom:20px; opacity:0.55;">
+      <path d="M50 4 L61 39 L98 39 L68 60 L79 96 L50 74 L21 96 L32 60 L2 39 L39 39 Z"/>
+    </svg>
+    <div class="footer-brand">رسانه هنری رهاف</div>
+    <div class="footer-en">Rehaf Media</div>
+    <div class="footer-id">rehafmedia</div>
+  </footer>
+
+  <div class="toast" id="toast">کپی شد</div>
+
+  <script>
+    (function(){
+      var toast = document.getElementById('toast');
+      var toastTimer = null;
+
+      function showToast(msg){
+        toast.textContent = msg;
+        toast.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(function(){
+          toast.classList.remove('show');
+        }, 1800);
+      }
+
+      function copyText(text){
+        if(navigator.clipboard && window.isSecureContext){
+          return navigator.clipboard.writeText(text);
+        }
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.focus();
+        ta.select();
+        try{ document.execCommand('copy'); }catch(e){}
+        document.body.removeChild(ta);
+        return Promise.resolve();
+      }
+
+      document.querySelectorAll('[data-copy-target]').forEach(function(btn){
+        btn.addEventListener('click', function(){
+          var value = btn.getAttribute('data-copy-target');
+          copyText(value).then(function(){
+            showToast('کپی شد');
+            btn.classList.add('copied');
+            setTimeout(function(){ btn.classList.remove('copied'); }, 1200);
+          });
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
